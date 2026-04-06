@@ -1,17 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
-</head>
-<body>
-  <h1>Hello, I'm James 👋</h1>
-  <p>Software Developer from Philippines</p>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D'SIGN CLOUD | Software Solutions</title>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>POS System</li>
-    <li>Barangay Management System</li>
-    <li>Inventory System</li>
-  </ul>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .hero {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #38bdf8;
+      color: #000;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .pricing {
+      text-align: center;
+    }
+
+    .price-card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>D'SIGN CLOUD</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Custom Software Solutions for Your Business</h2>
+    <p>I build systems that simplify operations and grow your business.</p>
+    <a href="#contact" class="btn">Get a Free Consultation</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>POS Systems</h3>
+        <p>Sales, inventory, and reporting for retail shops.</p>
+      </div>
+      <div class="card">
+        <h3>Clinic Systems</h3>
+        <p>Patient records, billing, and scheduling.</p>
+      </div>
+      <div class="card">
+        <h3>Barangay Systems</h3>
+        <p>Resident records, document generation, reports.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Software</h3>
+        <p>Tailored solutions for your specific needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>POS & Inventory System</h3>
+        <p>Handles sales, stock, and reporting.</p>
+      </div>
+      <div class="card">
+        <h3>Barangay Information System</h3>
+        <p>Resident database with document automation.</p>
+      </div>
+      <div class="card">
+        <h3>Clinic Management System</h3>
+        <p>Appointments, patient records, billing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <h2 class="section-title">Pricing</h2>
+    <div class="cards">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p>₱15,000 - ₱30,000</p>
+        <p>Basic system with essential features</p>
+      </div>
+      <div class="price-card">
+        <h3>Professional</h3>
+        <p>₱30,000 - ₱80,000</p>
+        <p>Advanced features + reports</p>
+      </div>
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <p>Custom Pricing</p>
+        <p>Full-scale system with integrations</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p>📧 Email: your@email.com</p>
+    <p>📱 Facebook: fb.com/yourpage</p>
+    <p>📞 Phone: 09XXXXXXXXX</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 D'SIGN CLOUD. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
