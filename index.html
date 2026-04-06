@@ -8,142 +8,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { 
+      margin:0; 
+      overflow-x:hidden; 
+      background: #020617; 
+      color:#fff; 
+      position:relative; 
+      min-height:100vh;
     }
 
-    body {
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: #fff;
-      overflow-x: hidden;
+    canvas#bg { 
+      position: fixed; 
+      top:0; left:0; 
+      width:100%; height:100%; 
+      z-index:-1;
     }
 
-    /* Glass Effect */
     .glass {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-
-    header {
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: rgba(2,6,23,0.7);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-    }
-
-    header h1 {
-      color: #38bdf8;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #fff;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    section {
-      padding: 80px 10%;
-    }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      animation: fadeIn 1.5s ease;
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-    }
-
-    .hero span {
-      color: #38bdf8;
-    }
-
-    .hero p {
-      margin: 20px 0;
-      color: #94a3b8;
-    }
-
-    .btn {
-      padding: 12px 25px;
-      background: #38bdf8;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #000;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    /* CARDS */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
       padding: 25px;
       transition: 0.4s;
       opacity: 0;
       transform: translateY(40px);
     }
 
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
+    .glass.show { opacity:1; transform:translateY(0); }
+
+    header {
+      padding: 20px 10%;
+      display:flex; justify-content:space-between; align-items:center;
+      position: sticky; top:0; background: rgba(2,6,23,0.7); backdrop-filter: blur(10px); z-index:100;
     }
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-    }
+    header h1 { color:#38bdf8; }
+    nav a { margin-left:20px; text-decoration:none; color:#fff; transition:0.3s; }
+    nav a:hover { color:#38bdf8; }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #38bdf8;
-      text-align: center;
-    }
+    section { padding: 80px 10%; }
+    .hero { text-align:center; animation: fadeIn 1.5s ease; }
+    .hero h2 { font-size:2.8rem; }
+    .hero span { color:#38bdf8; }
+    .hero p { margin:20px 0; color:#94a3b8; }
+    .btn { padding:12px 25px; background:#38bdf8; border-radius:8px; text-decoration:none; color:#000; font-weight:600; transition:0.3s; }
+    .btn:hover { transform: scale(1.05); }
 
-    /* CONTACT */
-    .contact {
-      text-align: center;
-    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:25px; }
+    .section-title { font-size:2rem; margin-bottom:30px; color:#38bdf8; text-align:center; }
+    .contact { text-align:center; }
+    footer { text-align:center; padding:20px; color:#94a3b8; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #94a3b8;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
   </style>
 </head>
 
 <body>
+
+  <!-- CANVAS FOR PARTICLES -->
+  <canvas id="bg"></canvas>
 
   <!-- HEADER -->
   <header>
@@ -166,22 +92,10 @@
   <section id="services">
     <h2 class="section-title">Services</h2>
     <div class="grid">
-      <div class="card glass">
-        <h3>POS & Inventory</h3>
-        <p>Complete sales and inventory tracking systems.</p>
-      </div>
-      <div class="card glass">
-        <h3>Clinic Systems</h3>
-        <p>Patient records, scheduling, and billing.</p>
-      </div>
-      <div class="card glass">
-        <h3>LGU Systems</h3>
-        <p>Barangay & document management solutions.</p>
-      </div>
-      <div class="card glass">
-        <h3>Custom Software</h3>
-        <p>Tailored systems based on your business needs.</p>
-      </div>
+      <div class="glass"> <h3>POS & Inventory</h3><p>Complete sales and inventory tracking systems.</p> </div>
+      <div class="glass"> <h3>Clinic Systems</h3><p>Patient records, scheduling, and billing.</p> </div>
+      <div class="glass"> <h3>LGU Systems</h3><p>Barangay & document management solutions.</p> </div>
+      <div class="glass"> <h3>Custom Software</h3><p>Tailored systems based on your business needs.</p> </div>
     </div>
   </section>
 
@@ -189,18 +103,9 @@
   <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="grid">
-      <div class="card glass">
-        <h3>POS System</h3>
-        <p>Sales, receipts, inventory, reporting.</p>
-      </div>
-      <div class="card glass">
-        <h3>Barangay System</h3>
-        <p>Resident records and document generation.</p>
-      </div>
-      <div class="card glass">
-        <h3>Clinic System</h3>
-        <p>Appointments, EMR, billing.</p>
-      </div>
+      <div class="glass"> <h3>POS System</h3><p>Sales, receipts, inventory, reporting.</p> </div>
+      <div class="glass"> <h3>Barangay System</h3><p>Resident records and document generation.</p> </div>
+      <div class="glass"> <h3>Clinic System</h3><p>Appointments, EMR, billing.</p> </div>
     </div>
   </section>
 
@@ -216,22 +121,58 @@
     <p>© 2026 James Carlo</p>
   </footer>
 
-  <!-- SCROLL ANIMATION SCRIPT -->
+  <!-- ANIMATIONS SCRIPTS -->
   <script>
-    const cards = document.querySelectorAll('.card');
-
+    // Card scroll animation
+    const cards = document.querySelectorAll('.glass');
     window.addEventListener('scroll', () => {
       const triggerBottom = window.innerHeight * 0.85;
-
       cards.forEach(card => {
         const boxTop = card.getBoundingClientRect().top;
-
-        if(boxTop < triggerBottom){
-          card.classList.add('show');
-        }
+        if(boxTop < triggerBottom){ card.classList.add('show'); }
       });
     });
-  </script>
 
+    // Particle background
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+
+    const particles = [];
+    const colors = ['#38bdf8', '#0ea5e9', '#0284c7'];
+
+    function random(min, max) { return Math.random()*(max-min)+min; }
+
+    class Particle {
+      constructor(){ this.init(); }
+      init(){
+        this.x = random(0,w); this.y = random(0,h);
+        this.vx = random(-0.3,0.3); this.vy = random(-0.3,0.3);
+        this.radius = random(1,3); this.color = colors[Math.floor(random(0,colors.length))];
+      }
+      draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
+      update(){ 
+        this.x += this.vx; this.y += this.vy; 
+        if(this.x<0||this.x>w||this.y<0||this.y>h) this.init(); 
+        this.draw(); 
+      }
+    }
+
+    for(let i=0;i<120;i++) particles.push(new Particle());
+
+    function animate(){
+      ctx.clearRect(0,0,w,h);
+      for(let p of particles) p.update();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', ()=>{
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
