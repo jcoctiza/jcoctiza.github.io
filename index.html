@@ -1,76 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>James Carlo | Software Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>James Carlo | Software Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#020617;color:#fff;overflow-x:hidden;}
-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { 
+      margin:0; 
+      overflow-x:hidden; 
+      background: #020617; 
+      color:#fff; 
+      position:relative; 
+      min-height:100vh;
+    }
 
-header{padding:20px 10%;display:flex;justify-content:space-between;position:sticky;top:0;background:rgba(2,6,23,0.7);backdrop-filter:blur(10px);}
-header h1{color:#38bdf8;}
-nav a{margin-left:20px;color:#fff;text-decoration:none;}
-nav a:hover{color:#38bdf8;}
+    canvas#bg { 
+      position: fixed; 
+      top:0; left:0; 
+      width:100%; height:100%; 
+      z-index:-1;
+    }
 
-section{padding:80px 10%;}
-.section-title{text-align:center;color:#38bdf8;margin-bottom:40px;font-size:2rem;}
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      padding: 25px;
+      transition: 0.4s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
 
-.hero{text-align:center;}
-.hero h2{
-  font-size:3rem;
-  background: linear-gradient(90deg,#38bdf8,#0ea5e9,#0284c7);
-  -webkit-background-clip:text;
-  color:transparent;
-  animation: gradientMove 6s infinite;
-}
-.hero p{color:#94a3b8;margin:20px 0;}
-.btn{background:#38bdf8;color:#000;padding:12px 25px;border-radius:8px;text-decoration:none;}
+    .glass.show { opacity:1; transform:translateY(0); }
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+    header {
+      padding: 20px 10%;
+      display:flex; justify-content:space-between; align-items:center;
+      position: sticky; top:0; background: rgba(2,6,23,0.7); backdrop-filter: blur(10px); z-index:100;
+    }
 
-.glass{
-  background:rgba(255,255,255,0.05);
-  border-radius:15px;
-  padding:25px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.1);
-  transition:0.4s;
-  opacity:0;
-  transform:translateY(40px);
-}
-.glass.show{opacity:1;transform:translateY(0);}
-.glass:hover{transform:translateY(-10px);box-shadow:0 10px 30px rgba(56,189,248,0.3);}
+    header h1 { color:#38bdf8; }
+    nav a { margin-left:20px; text-decoration:none; color:#fff; transition:0.3s; }
+    nav a:hover { color:#38bdf8; }
 
-.project-card{
-  position:relative;
-  border-radius:15px;
-  overflow:hidden;
-  height:220px;
-}
-.project-card img{
-  width:100%;height:100%;object-fit:cover;
-  transition:0.5s;
-}
-.project-card:hover img{transform:scale(1.1);}
+    section { padding: 80px 10%; }
+    .hero { text-align:center; animation: fadeIn 1.5s ease; }
+    .hero h2 { font-size:2.8rem; }
+    .hero span { color:#38bdf8; }
+    .hero p { margin:20px 0; color:#94a3b8; }
+	
+    .btns { margin:10px; padding:12px 25px; background:#38bdf8; border-radius:8px; text-decoration:none; color:white; font-weight:600; transition:0.3s; }
+    .btns:hover { transform: scale(1.05); }
 
-.overlay{
-  position:absolute;bottom:0;left:0;width:100%;height:100%;
-  background:linear-gradient(to top,rgba(2,6,23,0.95),transparent);
-  opacity:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:20px;
-  transition:0.4s;
-}
-.project-card:hover .overlay{opacity:1;}
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:25px; }
+    .section-title { font-size:2rem; margin-bottom:30px; color:#38bdf8; text-align:center; }
+    .contact { text-align:center; }
+    footer { text-align:center; padding:20px; color:#94a3b8; }
 
-.tech-card{
+    @keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+  
+  .tech-card{
   text-align:center;
   padding:25px;
   border-radius:15px;
@@ -78,80 +73,56 @@ section{padding:80px 10%;}
   transition:0.4s;
 }
 .tech-card img{width:50px;margin-bottom:10px;}
-.tech-card:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(56,189,248,0.3);}
 
-footer{text-align:center;padding:20px;color:#94a3b8;}
-
-@keyframes gradientMove{
-  0%{background-position:0%;}
-  50%{background-position:100%;}
-  100%{background-position:0%;}
-}
-</style>
+  
+  </style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
+  <!-- CANVAS FOR PARTICLES -->
+  <canvas id="bg"></canvas>
 
-<header>
-<h1>James Carlo</h1>
-<nav>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#technologies">Tech</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <h1>James Carlo</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-<h2>Hi, I'm James Carlo 👋</h2>
-<p>I build systems that help businesses automate and grow.</p>
-<a href="#contact" class="btn">Work With Me</a>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Hi, I'm <span>James Carlo</span> 👋</h2>
+    <p>I am a Software Engineer specializing in developing customized systems for small to medium-sized businesses.<br/>
+	I build custom systems that help businesses automate, manage, and grow.</p>
+   <a href="OCTIZA, JAMES CARLO B. - Resume.png" download class="btns">Download my RESUME</a>
+  </section>
 
-<section id="services">
-<h2 class="section-title">Services</h2>
-<div class="grid">
-<div class="glass"><h3>POS System</h3></div>
-<div class="glass"><h3>Clinic System</h3></div>
-<div class="glass"><h3>LGU System</h3></div>
-<div class="glass"><h3>Custom Software</h3></div>
-</div>
-</section>
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="grid">
+      <div class="glass"> <h3>POS & Inventory</h3><p>Complete sales and inventory tracking systems.</p> </div>
+      <div class="glass"> <h3>Clinic Systems</h3><p>Patient records, scheduling, and billing.</p> </div>
+      <div class="glass"> <h3>LGU Systems</h3><p>Barangay & document management solutions.</p> </div>
+      <div class="glass"> <h3>Custom Software</h3><p>Tailored systems based on your business needs.</p> </div>
+    </div>
+  </section>
 
-<section id="projects">
-<h2 class="section-title">Projects</h2>
-<div class="grid">
-
-<div class="project-card">
-<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d">
-<div class="overlay">
-<h3>POS System</h3>
-<p>Inventory & Sales</p>
-</div>
-</div>
-
-<div class="project-card">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e6c9d6d7b">
-<div class="overlay">
-<h3>Barangay System</h3>
-<p>Records & Documents</p>
-</div>
-</div>
-
-<div class="project-card">
-<img src="https://images.unsplash.com/photo-1580281658629-3e46c1c1d5c1">
-<div class="overlay">
-<h3>Clinic System</h3>
-<p>Appointments & Billing</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<section id="technologies">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <div class="glass"> <h3>POS System</h3><p>Sales, receipts, inventory, reporting.</p> </div>
+      <div class="glass"> <h3>Barangay System</h3><p>Resident records and document generation.</p> </div>
+      <div class="glass"> <h3>Clinic System</h3><p>Appointments, EMR, billing.</p> </div>
+    </div>
+  </section>
+  
+  <section id="technologies">
 <h2 class="section-title">Technologies</h2>
 <div class="grid">
 
@@ -164,45 +135,70 @@ footer{text-align:center;padding:20px;color:#94a3b8;}
 </div>
 </section>
 
-<section id="contact">
-<h2 class="section-title">Contact</h2>
-<p>your@email.com</p>
-</section>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>📧 your@email.com</p>
+    <p>📱 Facebook: fb.com/yourpage</p>
+    <p>📞 09XXXXXXXXX</p>
+  </section>
 
-<footer>© 2026 James Carlo</footer>
+  <footer>
+    <p>© 2026 James Carlo</p>
+  </footer>
 
-<script>
-// scroll animation
-const cards=document.querySelectorAll('.glass');
-window.addEventListener('scroll',()=>{
-let t=window.innerHeight*0.85;
-cards.forEach(c=>{
-if(c.getBoundingClientRect().top<t){c.classList.add('show')}
-});
-});
+  <!-- ANIMATIONS SCRIPTS -->
+  <script>
+    // Card scroll animation
+    const cards = document.querySelectorAll('.glass');
+    window.addEventListener('scroll', () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const boxTop = card.getBoundingClientRect().top;
+        if(boxTop < triggerBottom){ card.classList.add('show'); }
+      });
+    });
 
-// particles
-const canvas=document.getElementById('bg');
-const ctx=canvas.getContext('2d');
-canvas.width=innerWidth;
-canvas.height=innerHeight;
+    // Particle background
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
 
-let particles=[];
-for(let i=0;i<100;i++){
-particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random(),vy:Math.random()});
-}
+    const particles = [];
+    const colors = ['#38bdf8', '#0ea5e9', '#0284c7'];
 
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-particles.forEach(p=>{
-p.x+=p.vx;p.y+=p.vy;
-ctx.fillStyle="#38bdf8";
-ctx.fillRect(p.x,p.y,2,2);
-});
-requestAnimationFrame(draw);
-}
-draw();
-</script>
+    function random(min, max) { return Math.random()*(max-min)+min; }
 
+    class Particle {
+      constructor(){ this.init(); }
+      init(){
+        this.x = random(0,w); this.y = random(0,h);
+        this.vx = random(-0.3,0.3); this.vy = random(-0.3,0.3);
+        this.radius = random(1,3); this.color = colors[Math.floor(random(0,colors.length))];
+      }
+      draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
+      update(){ 
+        this.x += this.vx; this.y += this.vy; 
+        if(this.x<0||this.x>w||this.y<0||this.y>h) this.init(); 
+        this.draw(); 
+      }
+    }
+
+    for(let i=0;i<120;i++) particles.push(new Particle());
+
+    function animate(){
+      ctx.clearRect(0,0,w,h);
+      for(let p of particles) p.update();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', ()=>{
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
